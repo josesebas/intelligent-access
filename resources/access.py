@@ -2,7 +2,6 @@ from flask_restful import Resource, request
 from flask import jsonify, request as req, current_app as app
 from libs.auth import auth
 from libs.logger import Logger
-#from libs.mysql import DB
 from bson.json_util import dumps, loads, default
 
 class Access(Resource):

@@ -13,7 +13,7 @@ conn = DB(app)
 
 # Routes
 #api.add_resource(Respondent, '/respondent','/respondent/<name>')
-api.add_resource(Access, '/', resource_class_kwargs={'conn':conn})
+api.add_resource(Access, '/get-access', resource_class_kwargs={'conn':conn})
 #-------
 if __name__ == '__main__':
     log.info('Server listen in %s:%s' %(config['host'], config['port']))
