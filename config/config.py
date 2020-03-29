@@ -1,6 +1,6 @@
 auth = {
     'apikey': '123456'
-    
+
 }
 
 logs = {
@@ -11,8 +11,10 @@ logs = {
 }
 
 db = {
-    "host": "mongodb://dialtesting:S2ewKdGGwX@159.203.175.164:13141/dial-testing",
-	"name" : 'dial-testing'
+    'host': 'gdlvan.com.mx',
+	'name' : 'gdlvanco_intelligent_access',
+    'password' : '2020CABbdi_mod.',
+    'user': 'gdlvanco_mod'
 }
 
 general = {

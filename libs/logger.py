@@ -8,9 +8,9 @@ class Logger:
             "silly" : "\033[35m",
             "debug" : "\033[36m",
             "warn" : "\033[33m",
-            "error" : "\033[31m", 
+            "error" : "\033[31m",
             "end" : "\033[0m",
-            
+
         }
         self.debugFile = open("./logs/debug.log", "a")
         self.errorFile = open("./logs/error.log", "a")
@@ -33,14 +33,14 @@ class Logger:
         textShow = "[%s] %s[SILLY]%s  %s" %(t, self.colors['silly'],self.colors['end'],str(msg))
         print(textShow)
         self.debugFile.write(textShow+"/n")
-    
+
     def warn(self, msg):
         t = datetime.datetime.now()
         t = t.strftime("%d/%b/%Y %H:%M:%S")
         textShow = "[%s] %s[WARN]%s   %s" %(t, self.colors['warn'],self.colors['end'],str(msg))
         print(textShow)
         self.errorFile.write(textShow+"/n")
-    
+
     def error(self, msg):
         t = datetime.datetime.now()
         t = t.strftime("%d/%b/%Y %H:%M:%S")

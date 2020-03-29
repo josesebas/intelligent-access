@@ -30,6 +30,3 @@ class Respondent(Resource):
         self.log.warn('This is a example warn')
         self.log.error('This is a example error')
         return request.form
-
-   
-    
