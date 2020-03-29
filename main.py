@@ -1,4 +1,5 @@
 from flask import Flask, request as req, jsonify
+from flask_cors import CORS
 from flask_restful import Resource, Api, request
 from bson.json_util import dumps, loads, default
 #models
@@ -15,7 +16,7 @@ app = Flask(__name__)
 api = Api(app)
 log = Logger()
 conn = DB(app)
-
+cors = CORS(app, resources={r"/*": {"origins": "*"}})
 # Routes
 #api.add_resource(Respondent, '/respondent','/respondent/<name>')
 api.add_resource(Access, '/access', resource_class_kwargs={'conn':conn})
