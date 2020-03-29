@@ -4,13 +4,13 @@ from libs.auth import auth
 from libs.logger import Logger
 from bson.json_util import dumps, loads, default
 
-class Access(Resource):
+class Roles(Resource):
     def __init__(self, **kwargs):
         self.log = Logger()
         self.conn = kwargs['conn']
     def get(self):
         cur = self.conn.mysql.connection.cursor()
-        cur.execute("SELECT name, created_at, updated_at FROM access WHERE deleted_at is null")
+        cur.execute("SELECT name, id FROM roles WHERE deleted_at is null")
         self.conn.mysql.connection.commit()
         return jsonify(code=200, data=cur.fetchall())
         #return jsonify(results=self.db.config)

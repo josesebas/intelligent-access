@@ -20,5 +20,6 @@ pyparsing==2.3.1
 virtualenv==20.0.5
 virtualenv-clone==0.5.3
 virtualenvwrapper==4.8.4
+simplejson==3.17.0
 Werkzeug==0.14.1
 zipp==1.2.0
