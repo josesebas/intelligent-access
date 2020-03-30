@@ -11,7 +11,7 @@ class People(Resource):
         self.conn = kwargs['conn']
     def get(self):
         cur = self.conn.mysql.connection.cursor()
-        cur.execute("SELECT people.created_at, profile_person.* FROM people LEFT JOIN profile_person ON people.id = profile_person.person_id")
+        cur.execute("SELECT people.created_at, updated_at, profile_person.* FROM people LEFT JOIN profile_person ON people.id = profile_person.person_id")
         self.conn.mysql.connection.commit()
         return jsonify({'code':200, 'data':cur.fetchall()})
         #return jsonify(results=self.db.config)
