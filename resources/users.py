@@ -8,15 +8,28 @@ class Users(Resource):
     def __init__(self, **kwargs):
         self.log = Logger()
         self.conn = kwargs['conn']
-    def get(self):
-        cur = self.conn.mysql.connection.cursor()
-        cur.execute("SELECT * FROM users")
-        self.conn.mysql.connection.commit()
-        users = cur.fetchall()
-        for user in users:
+    def get(self, user_id = None):
+        if user_id is None:
             cur = self.conn.mysql.connection.cursor()
-            cur.execute("SELECT * FROM roles LEFT JOIN role_has_user ON role_has_user.role_id = roles.id WHERE user_id = %s" %user['id'])
+            cur.execute("SELECT * FROM users")
             self.conn.mysql.connection.commit()
-            user['roles']=cur.fetchall()
-        return jsonify(code=200, data=users)
+            users = cur.fetchall()
+            for user in users:
+                cur = self.conn.mysql.connection.cursor()
+                cur.execute("SELECT * FROM roles LEFT JOIN role_has_user ON role_has_user.role_id = roles.id WHERE user_id = %s" %user['id'])
+                self.conn.mysql.connection.commit()
+                user['roles']=cur.fetchall()
+            return jsonify(code=200, data=users)
+        else:
+            cur = self.conn.mysql.connection.cursor()
+            cur.execute("SELECT * FROM users WHERE id = %s" %user_id)
+            self.conn.mysql.connection.commit()
+            users = cur.fetchall()
+            for user in users:
+                cur = self.conn.mysql.connection.cursor()
+                cur.execute("SELECT * FROM roles LEFT JOIN role_has_user ON role_has_user.role_id = roles.id WHERE user_id = %s" %user['id'])
+                self.conn.mysql.connection.commit()
+                user['roles']=cur.fetchall()
+            return jsonify(code=200, data=users)
+
         #return jsonify(results=self.db.config)

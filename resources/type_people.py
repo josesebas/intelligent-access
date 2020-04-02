@@ -8,9 +8,15 @@ class Type_people(Resource):
     def __init__(self, **kwargs):
         self.log = Logger()
         self.conn = kwargs['conn']
-    def get(self):
-        cur = self.conn.mysql.connection.cursor()
-        cur.execute("SELECT name, created_at, updated_at FROM type_people")
-        self.conn.mysql.connection.commit()
-        return jsonify(code=200, data=cur.fetchall())
+    def get(self, type_id=None):
+        if type_id is None:
+            cur = self.conn.mysql.connection.cursor()
+            cur.execute("SELECT name, created_at, updated_at FROM type_people")
+            self.conn.mysql.connection.commit()
+            return jsonify(code=200, data=cur.fetchall())
+        else:
+            cur = self.conn.mysql.connection.cursor()
+            cur.execute("SELECT name, created_at, updated_at FROM type_people WHERE id = %s" %type_id)
+            self.conn.mysql.connection.commit()
+            return jsonify(code=200, data=cur.fetchall())
         #return jsonify(results=self.db.config)

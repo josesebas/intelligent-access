@@ -19,11 +19,12 @@ conn = DB(app)
 cors = CORS(app, resources={r"/*": {"origins": "*"}})
 # Routes
 #api.add_resource(Respondent, '/respondent','/respondent/<name>')
-api.add_resource(Access, '/access', resource_class_kwargs={'conn':conn})
-api.add_resource(Roles, '/roles', resource_class_kwargs={'conn':conn})
-api.add_resource(Users, '/users', resource_class_kwargs={'conn':conn})
-api.add_resource(People, '/people', resource_class_kwargs={'conn':conn})
-api.add_resource(Type_people, '/type_people', resource_class_kwargs={'conn':conn})
+#api.add_resource(Access, '/access', resource_class_kwargs={'conn':conn}, defaults={'access_id':None}, endpoint="access")
+api.add_resource(Access, '/access', '/access/<access_id>/', resource_class_kwargs={'conn':conn}, methods=['GET', 'POST','PUT','DELETE'])
+api.add_resource(Roles, '/roles', '/roles/<rol_id>/', resource_class_kwargs={'conn':conn}, methods=['GET', 'POST','PUT','DELETE'])
+api.add_resource(Users, '/users', '/users/<user_id>/', resource_class_kwargs={'conn':conn}, methods=['GET', 'POST','PUT','DELETE'])
+api.add_resource(People, '/people', '/people/<person_id>/', resource_class_kwargs={'conn':conn}, methods=['GET', 'POST','PUT','DELETE'])
+api.add_resource(Type_people, '/type_people', '/type_people/<type_id>/', resource_class_kwargs={'conn':conn}, methods=['GET', 'POST','PUT','DELETE'])
 
 #-------
 if __name__ == '__main__':
