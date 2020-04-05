@@ -47,5 +47,5 @@ stevedore==1.32.0
 virtualenv==20.0.5
 virtualenv-clone==0.5.3
 virtualenvwrapper==4.8.4
-Werkzeug==0.14.1
+Werkzeug==0.15.3
 zipp==1.2.0
