@@ -6,7 +6,6 @@ colorama==0.4.1
 configparser==4.0.2
 cycler==0.10.0
 distlib==0.3.0
-Django==2.1.7
 filelock==3.0.12
 Flask==1.0.2
 Flask-API==1.0
