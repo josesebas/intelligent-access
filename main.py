@@ -25,7 +25,7 @@ api.add_resource(Roles, '/roles', '/roles/<rol_id>/', resource_class_kwargs={'co
 api.add_resource(Users, '/users', '/users/<user_id>/', resource_class_kwargs={'conn':conn}, methods=['GET', 'POST','PUT','DELETE'])
 api.add_resource(People, '/people', '/people/<person_id>/', resource_class_kwargs={'conn':conn}, methods=['GET', 'POST','PUT','DELETE'])
 api.add_resource(Type_people, '/type_people', '/type_people/<type_id>/', resource_class_kwargs={'conn':conn}, methods=['GET', 'POST','PUT','DELETE'])
-
+#comentario prueba 
 #-------
 if __name__ == '__main__':
     log.info('Server listen in %s:%s' %(config['host'], config['port']))
