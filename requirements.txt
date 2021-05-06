@@ -9,7 +9,7 @@ distlib==0.3.0
 filelock==3.0.12
 Flask==1.0.2
 Flask-API==1.0
-Flask-Cors==3.0.8
+Flask-Cors==3.0.9
 Flask-MySQLdb==0.2.0
 Flask-RESTful==0.3.8
 Flask-SQLAlchemy==2.4.1
